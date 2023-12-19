@@ -58,7 +58,8 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array();
+
+$autoload['libraries'] = array('database', 'session', 'upload','Ciqrcode');
 
 /*
 | -------------------------------------------------------------------
@@ -74,7 +75,7 @@ $autoload['libraries'] = array();
 |	$autoload['drivers'] = array('cache');
 |
 | You can also supply an alternative property name to be assigned in
-| the controller:
+
 |
 |	$autoload['drivers'] = array('cache' => 'cch');
 |
@@ -89,7 +90,8 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+
+$autoload['helper'] = array('url','utility','file','barcode');
 
 /*
 | -------------------------------------------------------------------
