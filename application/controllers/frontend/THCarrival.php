@@ -372,6 +372,10 @@ public function testing(){
     echo ' i am here';
 }
 
+public function test(){
+    echo ' i am tester';
+}
+
 public function getlrdataJUNETHC()
 {
 
