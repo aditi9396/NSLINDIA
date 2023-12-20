@@ -112,6 +112,7 @@ $route['thccancel'] = 'THCarrival/thccancel';
 // DASHBOARD DRS CANCEL
 $route['drs_cancel'] = 'THCarrival/search1';
 $route['drscancel'] = 'THCarrival/drscancel';
+$route['adititest'] = 'THCarrival/adititest';
 
 // DASHBOARD LR CANCEL
 $route['LR_cancel'] = 'THCarrival/search4';

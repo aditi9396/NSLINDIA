@@ -432,6 +432,10 @@ public function Attendence(){
  $this->load->view('frontend/frontend-template', $data);
 }
 
+public function adititest(){
+    echo ' i am here';
+}
+
 public function photoupload(){
  $this->load->model('Auth_model');
  $data['user']=$this->Auth_model->user_data($this->session->userdata('user_id'));
