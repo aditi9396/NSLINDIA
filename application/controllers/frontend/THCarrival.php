@@ -368,11 +368,8 @@ public function str_LRNO()
     echo $html;
 }
 
-public function testing(){
-    echo ' i am here';
-}
 
-public function test(){
+public function vtc(){
     echo ' i am tester';
 }
 
@@ -448,8 +445,6 @@ public function save_photo() {
 
     // if ($this->input->is_ajax_request()) {
   $photoData = $this->input->post('photo');
-  print_r($photoData);
-  exit();
 
 
   $data = array(

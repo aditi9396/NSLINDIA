@@ -234,8 +234,7 @@ $route['search_fields'] = 'Autocomplete/search_fields';
 $route['sendotpthc'] = 'THCarrival/sendotpthc';
 $route['verify_otpthc'] = 'THCarrival/verify_otpthc';
 $route['getlrdataJUNETHC'] = 'THCarrival/getlrdataJUNETHC';
-$route['testing'] = 'THCarrival/testing';
-$route['test'] = 'THCarrival/test';
+$route['vtc'] = 'THCarrival/vtc';
 
 // attendence app
 $route['Attendence'] = 'THCarrival/Attendence';
