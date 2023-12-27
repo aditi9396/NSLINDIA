@@ -112,7 +112,6 @@ $route['thccancel'] = 'THCarrival/thccancel';
 // DASHBOARD DRS CANCEL
 $route['drs_cancel'] = 'THCarrival/search1';
 $route['drscancel'] = 'THCarrival/drscancel';
-$route['adititest'] = 'THCarrival/adititest';
 
 // DASHBOARD LR CANCEL
 $route['LR_cancel'] = 'THCarrival/search4';
@@ -234,7 +233,6 @@ $route['search_fields'] = 'Autocomplete/search_fields';
 $route['sendotpthc'] = 'THCarrival/sendotpthc';
 $route['verify_otpthc'] = 'THCarrival/verify_otpthc';
 $route['getlrdataJUNETHC'] = 'THCarrival/getlrdataJUNETHC';
-$route['vtc'] = 'THCarrival/vtc';
 
 // attendence app
 $route['Attendence'] = 'THCarrival/Attendence';

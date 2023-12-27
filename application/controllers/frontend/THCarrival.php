@@ -369,10 +369,6 @@ public function str_LRNO()
 }
 
 
-public function vtc(){
-    echo ' i am tester';
-}
-
 public function getlrdataJUNETHC()
 {
 
@@ -429,9 +425,6 @@ public function Attendence(){
  $this->load->view('frontend/frontend-template', $data);
 }
 
-public function adititest(){
-    echo ' i am here';
-}
 
 public function photoupload(){
  $this->load->model('Auth_model');
