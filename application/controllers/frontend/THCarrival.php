@@ -429,7 +429,7 @@ public function Attendence(){
  $this->load->view('frontend/frontend-template', $data);
 }
 
-public function adititest(){
+public function test(){
     echo ' i am here';
 }
 
