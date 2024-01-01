@@ -166,7 +166,7 @@
                             <form action="<?php echo base_url('edit_drsapproval'); ?>" method="POST"
                                 style="display:inline;">
                                 <input type="hidden" name="Edit_Approval" value="<?php echo $record->id; ?>">
-                                <button type="submit" class="btn btn-success" name="edit">Edit</button>
+                                <button type="submit" class="btn btn-outline-dark btn-fw" name="edit">Edit</button>
                             </form>
                         </td>
                         <td>

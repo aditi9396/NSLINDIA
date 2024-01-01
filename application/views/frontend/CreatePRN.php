@@ -360,7 +360,7 @@ function fetchLRNumbers() {
         </div>
         <div class="form-group row">
             <div class="col-lg-12 text-center" style="top: 4px;">
-                <input type="submit" id="SubmitPRN" name="submit_action" value="Create_PRN">
+                <input type="submit" class="btn btn-outline-dark btn-fw" id="SubmitPRN" name="submit_action" value="Create_PRN">
             </div>
         </div>
     </div>
