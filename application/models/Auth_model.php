@@ -566,6 +566,262 @@ public function updateReasonForTHCNO($thcno, $newReason) {
     $this->db->update('thc', $data);
 }
 
+// PRN
+
+public function getVehicle($searchTerm) {
+    $sql = $this->db->query("SELECT Vehicle_No FROM `vehiclemaster` WHERE `Vehicle_No` LIKE '%$searchTerm%'");
+    $result = $sql->result_array();
+    return $result;
+}
+
+public function getCustomerData($searchTerm) {
+    try {
+        $sql = $this->db->query("SELECT CustCode, CustName FROM customers WHERE CustCode LIKE '%$searchTerm%' LIMIT 10");
+        $result = $sql->result_array();
+        return $result;
+    } catch (Exception $e) {
+        log_message('error', 'Exception in getCustomerData: ' . $e->getMessage());
+        
+    }
+}
+
+public function getLRNumbers($partyId, $selectedDate, $fromDate) {
+        $data = array();
+
+        $sql = "SELECT LRNO FROM lr WHERE 
+                Status = '1' 
+                AND Consignor LIKE '%$partyId%' 
+                AND Origin = 'PNA' 
+                AND CurrentLocation = 'PNA' 
+                AND LRDate BETWEEN '$fromDate' AND '$selectedDate' 
+                AND DRS_THCNO = ''";
+
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $row) {
+                $data[] = $row['LRNO'];
+            }
+            return $data;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function getMaxId() {
+        $this->db->select_max('CAST(SUBSTRING(`PRNId`, 14) AS UNSIGNED)', 'maxId');
+        $result = $this->db->get('PRNvehicle');
+        return $result->row_array();
+    }
+
+    public function insertPrnVehicle($data) {
+        $this->db->insert('prnvehicle', $data);
+        return $this->db->insert_id();
+    }
+
+    public function insertPrnApp($lrData) {
+    if ($this->db->insert('prnapp', $lrData)) {
+        return true;
+    } else {
+        // Log SQL error
+        log_message('error', 'SQL Error: ' . $this->db->error());
+        return false;
+    }
+}
+
+
+    public function updateLrTable($lrnoValue) {
+    $this->db->set('Status', '7');
+    $this->db->where('LRNO', $lrnoValue);
+    if ($this->db->update('lr')) {
+        return true;
+    } else {
+        // Log SQL error
+        log_message('error', 'SQL Error: ' . $this->db->error());
+        return false;
+    }
+}
+
+
+/*public function getFilteredRecordsprn($fromDate, $toDate, $THCNO) {
+      
+        $this->db->where('PRNDate >=', $fromDate);
+        $this->db->where('PRNDate <=', $toDate);
+        $this->db->where('PRNId', $THCNO);
+        $query = $this->db->get('prnvehicle');
+
+        return $query->result(); 
+    }*/
+
+    public function searchByDatePRN($dateFrom, $dateTo) {
+    $result = $this->db->query("SELECT * FROM `prnvehicle` WHERE `PRNDate` BETWEEN ? AND ? AND ArrivalDate = '0000-00-00'", array($dateFrom, $dateTo));
+    return $result->result();
+}
+
+public function searchByPrnNo($prnNo) {
+    $result = $this->db->query("SELECT * FROM `prnvehicle` WHERE `PRNId` = ? AND ArrivalDate = '0000-00-00'", array($prnNo));
+    return $result->result();
+}
+
+
+public function get_UpdatePrnStock_details($Edit_PrnStock)
+{    
+    $result = $this->db->query("SELECT * FROM `prnvehicle` WHERE `PRNId` = ?", array($Edit_PrnStock));
+    return $result->result();
+}
+
+public function get_UpdatePrnStock_alldetails($Edit_PrnStock)
+{    
+    $result = $this->db->query("SELECT T1.LRNO, DATE_FORMAT(LRDate, '%d-%b-%Y') LRDate, ToPlace, PkgsNo, RecievedQty, Reason FROM prnapp T1 INNER JOIN LR T2 ON T1.LRNO = T2.LRNO WHERE PRNId = ?", array($Edit_PrnStock));
+
+    return $result->result();
+}
+
+public function updatePrnDetails($data) {
+        $this->db->trans_start();
+
+        $this->db->set('ArrivalDate', 'NOW()', false);
+        $this->db->set('PrnArrivalDateTime', 'NOW()', false);
+        $this->db->set('ArrivalUser', $data['User1']);
+        $this->db->set('LoadingUnloading', $data['Unloadingornot']);
+        $this->db->set('VendorHamaliName', $data['Hvendor']);
+        $this->db->set('HamaliAmount', $data['hamali']);
+        $this->db->where('PRNId', $data['thcno']);
+        $this->db->update('PRNvehicle');
+
+        if (!empty($data['LRDetails']) && is_array($data['LRDetails'])) {
+            foreach ($data['LRDetails'] as $lrow) {
+                $this->db->set('ADate', 'NOW()', false);
+                $this->db->set('RecievedQty', $lrow['received_qty']);
+                $this->db->set('Reason', $lrow['reason']);
+                $this->db->where('LRNO', $lrow['LRNO']);
+                $this->db->where('PRNId', $data['thcno']);
+                $this->db->update('Prnapp');
+
+                $updateStatus = ($lrow['received_qty'] !== $lrow['qty_']) ? 10 : 1;
+                $this->updateLRStatus($lrow['LRNO'], $updateStatus, $data['thcno']);
+
+                // Send email when LR quantity does not match
+                if ($updateStatus === 10) {
+                    $this->sendEmailOnQuantityMismatch($data['thcno'], $data['Vehicleno'], $lrow);
+                }
+            }
+        }
+
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === false) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function sendEmailOnQuantityMismatch($thcno, $vehicleno, $lrData) {
+        $to = "ashok.kadam@swatpro.co";
+        $subject = "Regarding PRN material not arrived";
+        $message = "<tr><td>$thcno</td><td>$vehicleno</td><td>{$lrData['LRNO']}</td><td>{$lrData['qty_']}</td><td>{$lrData['received_qty']}</td><td>{$lrData['reason']}</td></tr>";
+
+        $message = "
+            <table border=1 cellpadding='5' cellspacing='5' style='margin-top:30px; border-color: black; '>
+            <tr><th>PRN NO</th><th>Vehicle No</th><th>LR NO</th><th>PkgsNo</th><th>Arrival Qty</th><th>Reason</th></tr>
+            $message
+        </table>";
+
+        $headers = array(
+            'MIME-Version: 1.0',
+            'Content-type: text/html; charset=utf-8',
+            'From: ashokkadam7795@gmail.com',
+            'Cc: ashokadam2000@gmail.com,ashokkadam7795@gmail.com',
+            'Bcc: anotheremail@example.com'
+        );
+
+        $headers = implode("\r\n", $headers);
+        $retval = mail($to, $subject, $message, $headers);
+
+        if ($retval === true) {
+            echo "<script>alert('Mail sent successfully...')</script>";
+        } else {
+            echo "Error sending the email.";
+        }
+    }
+
+
+public function updateLRStatus($lrno, $status, $thcno) {
+    if ($status === 10) {
+        $this->db->set('Status', '1');
+    } else {
+        $this->db->set('Status', $status);
+        $this->db->set('DRS_THCNO', $thcno);
+    }
+    $this->db->where('LRNO', $lrno);
+    $this->db->update('LR');
+}
+
+
+// DRS APPROVAL
+
+public function getFilteredRecords($fromDate, $toDate) {
+    $this->db->select('id, vendorName, vehicleNo, date, reason, approvalUser');
+    $this->db->from('drsprofitapproval');
+       
+    $this->db->where('date >=', $fromDate);
+    $this->db->where('date <=', $toDate);
+
+    $query = $this->db->get();
+
+    if ($query) {
+        return $query->result();
+    } else {
+     
+        echo $this->db->error();
+        return false;
+    }
+}
+
+
+public function delete_Drsapproval($Delete_Approval)
+{
+    $this->db->where('id', $Delete_Approval);
+$this->db->delete('drsprofitapproval');
+}
+
+
+public function get_Drsapproval_details($edit_Approval)
+{
+
+    $query = $this->db->get_where('drsprofitapproval', array('id' => $edit_Approval));
+
+    return $query->row_array();
+
+}
+
+
+public function insertDrsProfitApproval($formArray)
+{
+
+$result  = $this->db->insert('drsprofitapproval',$formArray);
+
+    if($result)
+    {  
+
+        return true;
+
+    }
+    else{
+        return false;
+    }
+
+
+}
+
+ public function edit_drsapproval($editdrsid, $formdata)
+{
+    $this->db->where('id', $editdrsid);
+    $this->db->update('drsprofitapproval', $formdata);
+}
+
 
 
 }

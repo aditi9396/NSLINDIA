@@ -242,6 +242,41 @@ $route['take_photo'] = 'THCarrival/photoupload';
 $route['save_photo'] = 'THCarrival/save_photo';
 $route['manifest.json'] = 'ManifestController/manifest';
 
+$route['vtc3pl'] = 'THCarrival/vtc3pl';
+
+
+//CREATE PRN 
+
+$route['Createprn'] = 'CreateAndArrivalPRN/Createprn';
+$route['get_vehicle_data'] = 'CreateAndArrivalPRN/get_vehicle_data';
+$route['serchprnwise'] = 'CreateAndArrivalPRN/serchprnwise';
+$route['get_customer_data'] = 'CreateAndArrivalPRN/get_customer_data';
+$route['getLRNumbersdata'] = 'CreateAndArrivalPRN/getLRNumbersdata';
+$route['savePrn'] = 'CreateAndArrivalPRN/saveprn';
+$route['createprnview'] = 'CreateAndArrivalPRN/createprnview';
+
+$route['fetchprnwise'] = 'CreateAndArrivalPRN/fetchprnwise';
+$route['UpdatePrnStock'] = 'CreateAndArrivalPRN/UpdatePrnStock';
+$route['prnarrivaldetails'] = 'CreateAndArrivalPRN/prnarrivaldetails';
+
+
+
+// DRS PROFIT APPROVAL
+
+$route['CreateDrsProfitApprovalForm'] = 'CreateAndArrivalPRN/DrsProfitApprovalForm';
+$route['insertDRSProfitApproval'] = 'CreateAndArrivalPRN/insertDRSProfitApproval';
+$route['UpdateDRSProfitApproval'] = 'CreateAndArrivalPRN/UpdateDRSProfitApproval';
+$route['edit_drsapproval'] = 'CreateAndArrivalPRN/edit_drsapproval';
+$route['delete_drsapproval'] = 'CreateAndArrivalPRN/delete_drsapproval';
+$route['DRSProfitApprovalReport'] = 'CreateAndArrivalPRN/DRSProfitApprovalReport';
+
+
+
+
+
+
+
+
 
 
 

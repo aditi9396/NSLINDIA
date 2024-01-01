@@ -79,6 +79,8 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link active" href="lr-generataion"> LRGENRATION </a></li>
                   <li class="nav-item"> <a class="nav-link" href="LR_cancel">LR CANCEL</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="Createprn">CREATE PRN </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="fetchprnwise">ARRIVAL PRN </a></li>
                   <li class="nav-item"> <a class="nav-link" href="createdrs">CREATE DRS </a></li>
                   <li class="nav-item"> <a class="nav-link" href="register"> REGISTER </a></li>
                   <li class="nav-item"> <a class="nav-link" href="thcarrival"> THC ARRIVAL </a></li>
@@ -93,6 +95,8 @@
                   <li class="nav-item"> <a class="nav-link" href="tripsheet">THRIPSHEET EXPENSES</a></li>
                   <li class="nav-item"> <a class="nav-link" href="locationmaster">MASTER LOCATION</a></li>
                   <li class="nav-item"> <a class="nav-link" href="citymaster">MASTER CITY</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="CreateDrsProfitApprovalForm">DRS APPROVAL FORM </a></li>
+                   <li class="nav-item"> <a class="nav-link" href="DRSProfitApprovalReport">DRS APPROVAL REPORT </a></li>
                 </ul>
               </div>
             </li>
