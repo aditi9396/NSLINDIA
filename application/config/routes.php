@@ -241,8 +241,6 @@ $route['save_photo'] = 'THCarrival/save_photo';
 $route['manifest.json'] = 'ManifestController/manifest';
 $route['vtc3pl'] = 'THCarrival/vtc3pl';
 
-
-
 //CREATE PRN 
 
 $route['Createprn'] = 'CreateAndArrivalPRN/Createprn';
@@ -256,8 +254,6 @@ $route['fetchprnwise'] = 'CreateAndArrivalPRN/fetchprnwise';
 $route['UpdatePrnStock'] = 'CreateAndArrivalPRN/UpdatePrnStock';
 $route['prnarrivaldetails'] = 'CreateAndArrivalPRN/prnarrivaldetails';
 
-
-
 // DRS PROFIT APPROVAL
 
 $route['CreateDrsProfitApprovalForm'] = 'CreateAndArrivalPRN/DrsProfitApprovalForm';
@@ -266,12 +262,6 @@ $route['UpdateDRSProfitApproval'] = 'CreateAndArrivalPRN/UpdateDRSProfitApproval
 $route['edit_drsapproval'] = 'CreateAndArrivalPRN/edit_drsapproval';
 $route['delete_drsapproval'] = 'CreateAndArrivalPRN/delete_drsapproval';
 $route['DRSProfitApprovalReport'] = 'CreateAndArrivalPRN/DRSProfitApprovalReport';
-
-
-
-
-
-
 
 // SPARE DETAILS
 $route['spare_view'] = 'InsertController/part';
