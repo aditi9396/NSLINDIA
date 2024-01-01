@@ -10,11 +10,11 @@
             }
         }
     </style>
-</head>
+</head> 
 <body onload="window.print()">
 <table style='border-collapse: collapse;margin-top: 20px;' width='95%' height='250px'>
         <tr>
-            <td colspan="4"><center><img src="<?php echo $qrCodeImage; ?>" style="    position: absolute;margin: 9% 6%;width: 13%; height: 9%;" alt="QR Code"></center></td>
+            <td colspan="4"><center><img src="<?php echo $qrCodeImage; ?>" style="position: absolute;margin: 9% 6%;width: 13%; height: 9%;" alt="QR Code"></center></td>
         </tr>
         <tr>
             <td><strong>PLACE</strong></td>
@@ -27,11 +27,11 @@
             <td style='font-size: 14px;'> <?php echo substr($lrData->Consignee, 0, 14); ?></td>
             <td style=' width = 40%; text-align: center;border: 1px solid;'><strong>Route No.</strong></td>
         </tr>
-        <tr>
+        <tr >
             <td><strong>QTY</strong></td>
             <td>:</td>
-            <td style='font-size: 70px; text-align: center;border: 1px solid'> <?php echo $lrData->id; ?></td>
-            <td style='font-size: 60px; text-align: center;border: 1px solid;margin: 10px 10px;'><?php echo "P" . $lrData->id; ?></td>
+            <td class="section" style='font-size: 70px; text-align: center; border-left: 1px solid;border-bottom: 1px solid; border-top: 1px solid;'> <?php echo $lrData->id; ?></td>
+            <td  class="section1" style='font-size: 60px; text-align: center;margin: 10px 10px;  border-right: 1px solid;border-bottom: 1px solid; border-top: 1px solid;'><?php echo "P" . $lrData->id; ?></td>
         </tr>
         <tr>
             <td style='font-size: 10px;'><strong>INVOICE NO.</strong></td>

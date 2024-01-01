@@ -177,6 +177,55 @@ public function stickerprint()
     }
 }
 
+// public function allStickerPrint() {
+//     $selectedLRNOs = is_array($_GET['LRNO']) ? $_GET['LRNO'] : array($_GET['LRNO']);
+
+//     $this->load->library('ciqrcode');
+//     $this->load->model('Sales_Register_Model');
+
+//     $barcodeImages = array();
+
+//     foreach ($selectedLRNOs as $lrNo) {
+//         $barcode = generate_barcode($lrNo);
+//         $imagePath = FCPATH . 'barcode_' . $lrNo . '.png';
+//         file_put_contents($imagePath, $barcode);
+
+//         $this->load->helper('url');
+//         $imageURL = base_url('barcode_' . $lrNo . '.png');
+//         echo '<img src="' . $imageURL . '" alt="LR barcode">';
+
+//         $lrData = $this->Sales_Register_Model->getSelectedLRData($lrNo);
+
+//         if ($lrData && isset($lrData->PkgsNo) && $lrData->PkgsNo > 0) {
+//             for ($i = 0; $i < $lrData->PkgsNo; $i++) {
+//                 $qrCodeData = json_encode(['LRNO' => $lrData->LRNO, 'PkgsNo' => $lrData->PkgsNo]);
+
+//                 $params['data'] = $qrCodeData;
+//                 $params['level'] = 's';
+//                 $params['size'] = 2;
+//                 $params['savename'] = FCPATH . 'assets_old/qrcodes/barcode_' . $lrNo . '_' . $i . '.png';
+
+//                 $this->ciqrcode->generate($params);
+
+//                 $barcodeImages[$lrNo][] = base_url('assets_old/qrcodes/barcode_' . $lrNo . '_' . $i . '.png');
+//             }
+//         }
+//     }
+
+//     if (!empty($barcodeImages)) {
+//         foreach ($barcodeImages as $lrNo => $qrCodeImages) {
+//             foreach ($qrCodeImages as $qrCodeImage) {
+//                 echo '<img src="' . $qrCodeImage . '" alt="QR code">';
+//             }
+//         }
+//     }
+
+//     $data['barcodeImages'] = $barcodeImages;
+//     $this->load->view('frontend/print_sticker_view', $data);
+// }
+
+
+
 
 public function printdrsdemo(){
 
@@ -207,7 +256,7 @@ public function printdrsdemo(){
 public function printthcdemo(){
 
     $THCNO = $_GET['THCNO'];
-    $barcode = generate_barcode($THCNO);
+    $barcode = generateBarcode($THCNO);
     $imagePath = FCPATH . 'barcode.png';
     file_put_contents($imagePath, $barcode);
 

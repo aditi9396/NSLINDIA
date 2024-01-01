@@ -29,6 +29,22 @@
           font-size: 12px;
       }
   }
+
+  #scroll {
+            max-height: 300px; 
+            overflow-y: auto; 
+        }
+
+        .table-fixed {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-fixed th, .table-fixed td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
 </style>
      
 
@@ -40,7 +56,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Spare Parts</li>
+                  <li class="breadcrumb-item active" aria-current="page">Spare Details</li>
               </ol>
           </nav>
       </div>
@@ -87,12 +103,12 @@
                <tr>
                 <td>
                     <select id="pname" name="pname[]">
-                        <?php foreach ($sparepart as $sparepart) { ?>
-                            <option value="<?php echo $sparepart['pname'] ; ?>">
-                                <?php echo $sparepart['pname'] . " - " . $sparepart['pname']; ?>
-                            </option>
-                        <?php } ?>
-                    </select>
+    <?php foreach ($sparepart as $sparepartItem) { ?>
+        <option value="<?php echo $sparepartItem['pname']; ?>">
+            <?php echo $sparepartItem['pname']; ?>
+        </option>
+    <?php } ?>
+</select>
                 </td>
                 <td><input type="text" name="vname[]" required></td>
                 <td><input type="text" name="billno[]" required></td>
@@ -142,22 +158,22 @@
 <!-- =================================== -->
 <div id='3rd'>
     <div class="table-responsive text-nowrap" id="scroll">
-        <table class="table table-fixed text-center">
-            <thead class="thead-fixed">
-                <tr>
-                    <th>Part Name</th>
-                    <th>Qty</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($sparepart as $row) : ?>
-                    <tr>
-                        <td><?= isset($row->pname) ? $row->pname : '' ?></td>
-                        <td><?= isset($row->UpdatedQty) ? $row->UpdatedQty : '' ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+    <table   id="lrdetails" class="table table-fixed text-center">
+    <thead class="thead-fixed">
+        <tr>
+            <th>Part Name</th>
+            <th>Qty</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($sparepart as $row) : ?>
+            <tr>
+                <td><?= isset($row['pname']) ? $row['pname'] : '' ?></td>
+                <td><?= isset($row['UpdatedQty']) ? $row['UpdatedQty'] : '' ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
     </div>
 </div>
   </div>
@@ -173,7 +189,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
         $(document).ready(function () {
             function hideAllForms() {
@@ -206,29 +222,39 @@
     };
 
     // ===============================================
-         function addRow() {
-            var tbody = document.getElementById("dataTable");
-            var row = tbody.insertRow(tbody.rows.length);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
-            var cell7 = row.insertCell(6);
-            var cell8 = row.insertCell(7);
-             var cell9 = row.insertCell(8);
-              var cell10 = row.insertCell(9);
+      function addRow() {
+    var tbody = document.getElementById("dataTable");
+    var row = tbody.insertRow(tbody.rows.length);
 
-           cell1.innerHTML = '<select id="pname" name="pname[]">';
-            cell2.innerHTML = '<input type="text" name="vname[]">';
-            cell3.innerHTML = '<input type="text" name="billno[]">';
-            cell4.innerHTML = '<input type="date" name="bdt[]">';
-            cell5.innerHTML = '<input type="text" oninput="calculateAmount(this)" name="Qty[]">';
-            cell6.innerHTML = '<input type="text" oninput="calculateAmount(this)" name="rate[]">';
-            cell7.innerHTML = '<input type="text"   name="amount[]">';
-            cell8.innerHTML = '<button type="button" class="btn btn-outline-dark btn-fw"  onclick="deleteRow(this)">Delete</button>';
-        }
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
+    var cell9 = row.insertCell(8);
+    var cell10 = row.insertCell(9);
+
+    // Assuming 'sparepart' is a JavaScript array containing the options
+    var sparepartOptions = <?php echo json_encode($sparepart); ?>;
+
+    cell1.innerHTML = '<select id="pname" name="pname[]">' +
+        sparepartOptions.map(function (item) {
+            return '<option value="' + item.pname + '">' + item.pname + '</option>';
+        }).join('') +
+        '</select>';
+
+    cell2.innerHTML = '<input type="text" name="vname[]">';
+    cell3.innerHTML = '<input type="text" name="billno[]">';
+    cell4.innerHTML = '<input type="date" name="bdt[]">';
+    cell5.innerHTML = '<input type="text" oninput="calculateAmount(this)" name="Qty[]">';
+    cell6.innerHTML = '<input type="text" oninput="calculateAmount(this)" name="rate[]">';
+    cell7.innerHTML = '<input type="text" name="amount[]">';
+    cell8.innerHTML = '<button type="button" class="btn btn-outline-dark btn-fw" onclick="deleteRow(this)">Delete</button>';
+}
+
 // =====================
         function deleteRow(button) {
             var row = button.parentNode.parentNode;
@@ -268,7 +294,7 @@
 
     }
         // ======================
-       $(document).ready(function () {
+   $(document).ready(function () {
     $("#Submit").click(function () {
         let form = document.getElementById("form");
         var fd = new FormData(form);
@@ -279,10 +305,10 @@
             cache: false,
             processData: false,
             contentType: false,
-            datatype: JSON,
+            datatype: 'json', 
             type: 'POST',
             success: function (response) {
-                var myObj = setJSON.parse(response);
+                var myObj = JSON.parse(response); 
 
                 if (myObj.response) {
                     // Success: Data inserted successfully
@@ -298,7 +324,6 @@
         });
     });
 });
-
     </script>
 </body>
 
