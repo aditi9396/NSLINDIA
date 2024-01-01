@@ -2,7 +2,7 @@
 
  class CreateAndArrivalPRN extends CI_Controller
 {
-	public function Createprn() {  
+    public function Createprn() {  
     $this->load->model('Auth_model');
        $data['user']=$this->Auth_model->user_data($this->session->userdata('user_id'));
        $data['header']='frontend/header';
