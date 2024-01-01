@@ -273,9 +273,32 @@ $route['DRSProfitApprovalReport'] = 'CreateAndArrivalPRN/DRSProfitApprovalReport
 
 
 
+// SPARE DETAILS
+$route['spare_view'] = 'InsertController/part';
+$route['submitpart'] = 'InsertController/submitpart';
+$route['filterByDate'] = 'InsertController/filterByDate';
 
+// SPART PART 
+$route['user_view'] = 'UserCrud/user_view';
+$route['create'] = 'UserCrud/create';
+$route['Store'] = 'UserCrud/store'; 
+$route['singleUser/(:num)'] = 'UserCrud/singleUser/$1'; 
+$route['delete1/(:num)'] = 'UserCrud/delete1/$1';
 
+//VehicleIncidentTracker
 
+$route['VehicleIncidentTracker_view'] = 'UserCrud/VehicleIncidentTracker_view';
+$route['create1'] = 'UserCrud/create1';
+$route['Store1'] = 'UserCrud/store1'; 
+$route['singleUser1/(:num)'] = 'UserCrud/singleUser1/$1'; 
+$route['delete2/(:num)'] = 'UserCrud/delete2/$1';
+$route['xlsxdata1'] = 'UserCrud/xlsxdata1';
+
+///  Sales Register
+$route['sales_register'] = 'Sales_Register_Controller/sales_register';
+$route['searchdata'] = 'Sales_Register_Controller/searchdata';
+$route['xlsxdata'] = 'Sales_Register_Controller/xlsxdata';
+$route['allstickerprint'] = 'Sales_Register_Controller/allstickerprint';
 
 
 

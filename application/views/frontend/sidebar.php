@@ -95,8 +95,18 @@
                   <li class="nav-item"> <a class="nav-link" href="tripsheet">THRIPSHEET EXPENSES</a></li>
                   <li class="nav-item"> <a class="nav-link" href="locationmaster">MASTER LOCATION</a></li>
                   <li class="nav-item"> <a class="nav-link" href="citymaster">MASTER CITY</a></li>
+<<<<<<< HEAD
                   <li class="nav-item"> <a class="nav-link" href="CreateDrsProfitApprovalForm">DRS APPROVAL FORM </a></li>
                    <li class="nav-item"> <a class="nav-link" href="DRSProfitApprovalReport">DRS APPROVAL REPORT </a></li>
+=======
+                  <li class="nav-item"> <a class="nav-link" href="user_view">SPARE PART</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="spare_view">SPARE DETAILS</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="VehicleIncidentTracker_view">VEHICLE INCIDENT TRACKER</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="sales_register">SALES REGISTER</a></li>
+
+
+
+>>>>>>> b7cfb2e2080f7dc3cd8f1bab66d7736169773642
                 </ul>
               </div>
             </li>
