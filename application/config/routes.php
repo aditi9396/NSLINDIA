@@ -112,7 +112,6 @@ $route['thccancel'] = 'THCarrival/thccancel';
 // DASHBOARD DRS CANCEL
 $route['drs_cancel'] = 'THCarrival/search1';
 $route['drscancel'] = 'THCarrival/drscancel';
-$route['adititest'] = 'THCarrival/adititest';
 
 // DASHBOARD LR CANCEL
 $route['LR_cancel'] = 'THCarrival/search4';
@@ -234,7 +233,6 @@ $route['search_fields'] = 'Autocomplete/search_fields';
 $route['sendotpthc'] = 'THCarrival/sendotpthc';
 $route['verify_otpthc'] = 'THCarrival/verify_otpthc';
 $route['getlrdataJUNETHC'] = 'THCarrival/getlrdataJUNETHC';
-$route['vtc'] = 'THCarrival/vtc';
 
 // attendence app
 $route['Attendence'] = 'THCarrival/Attendence';
@@ -242,10 +240,88 @@ $route['take_photo'] = 'THCarrival/photoupload';
 $route['save_photo'] = 'THCarrival/save_photo';
 $route['manifest.json'] = 'ManifestController/manifest';
 
+//CREATE PRN 
+
+$route['Createprn'] = 'CreateAndArrivalPRN/Createprn';
+$route['get_vehicle_data'] = 'CreateAndArrivalPRN/get_vehicle_data';
+$route['serchprnwise'] = 'CreateAndArrivalPRN/serchprnwise';
+$route['get_customer_data'] = 'CreateAndArrivalPRN/get_customer_data';
+$route['getLRNumbersdata'] = 'CreateAndArrivalPRN/getLRNumbersdata';
+$route['savePrn'] = 'CreateAndArrivalPRN/saveprn';
+$route['createprnview'] = 'CreateAndArrivalPRN/createprnview';
+$route['fetchprnwise'] = 'CreateAndArrivalPRN/fetchprnwise';
+$route['UpdatePrnStock'] = 'CreateAndArrivalPRN/UpdatePrnStock';
+$route['prnarrivaldetails'] = 'CreateAndArrivalPRN/prnarrivaldetails';
+
+// DRS PROFIT APPROVAL
+
+$route['CreateDrsProfitApprovalForm'] = 'CreateAndArrivalPRN/DrsProfitApprovalForm';
+$route['insertDRSProfitApproval'] = 'CreateAndArrivalPRN/insertDRSProfitApproval';
+$route['UpdateDRSProfitApproval'] = 'CreateAndArrivalPRN/UpdateDRSProfitApproval';
+$route['edit_drsapproval'] = 'CreateAndArrivalPRN/edit_drsapproval';
+$route['delete_drsapproval'] = 'CreateAndArrivalPRN/delete_drsapproval';
+$route['DRSProfitApprovalReport'] = 'CreateAndArrivalPRN/DRSProfitApprovalReport';
+
+// SPARE DETAILS
+$route['spare_view'] = 'InsertController/part';
+$route['submitpart'] = 'InsertController/submitpart';
+$route['filterByDate'] = 'InsertController/filterByDate';
+
+// SPART PART 
+$route['user_view'] = 'UserCrud/user_view';
+$route['create'] = 'UserCrud/create';
+$route['Store'] = 'UserCrud/store'; 
+$route['singleUser/(:num)'] = 'UserCrud/singleUser/$1'; 
+$route['delete1/(:num)'] = 'UserCrud/delete1/$1';
+
+//VehicleIncidentTracker
+
+$route['VehicleIncidentTracker_view'] = 'UserCrud/VehicleIncidentTracker_view';
+$route['create1'] = 'UserCrud/create1';
+$route['Store1'] = 'UserCrud/store1'; 
+$route['singleUser1/(:num)'] = 'UserCrud/singleUser1/$1'; 
+$route['delete2/(:num)'] = 'UserCrud/delete2/$1';
+$route['xlsxdata1'] = 'UserCrud/xlsxdata1';
+
+///  Sales Register
+$route['sales_register'] = 'Sales_Register_Controller/sales_register';
+$route['searchdata'] = 'Sales_Register_Controller/searchdata';
+$route['xlsxdata'] = 'Sales_Register_Controller/xlsxdata';
+$route['allstickerprint'] = 'Sales_Register_Controller/allstickerprint';
+
+// cp Sales Register
+$route['cp_sales_register'] = 'Sales_Register_Controller/cp_sales_register';
+$route['searchdata1'] = 'Sales_Register_Controller/searchdata1';
+$route['allstickerprintcp'] = 'Sales_Register_Controller/allstickerprintcp';
+$route['xlsxdata1'] = 'Sales_Register_Controller/xlsxdata1';
+
+// DRS Sales Register
+$route['DRS_sales_register'] = 'Sales_Register_Controller/DRS_sales_register';
+// THC Sales Register
+$route['THC_sales_register'] = 'Sales_Register_Controller/THC_sales_register';
 
 
+//lrtracking
+$route['lrtracking'] = 'Lrtracking_Controller/lrtracking';
+$route['searchlrdata'] = 'Lrtracking_Controller/searchlrdata';
+$route['lrtracking_controller/insert'] = 'Lrtracking_Controller/insert';
+$route['tracklr/(:any)'] = 'lrtracking_controller/trackLR/$1';
+$route['ViewFeedback'] = 'Lrtracking_Controller/ViewFeedback';
+$route['viewcustfeedbackdata'] = 'Lrtracking_Controller/viewcustfeedbackdata';
+$route['sendDailyReport'] = 'Lrtracking_Controller/sendDailyReport';
+
+//mail
+$route['send-daily-report'] = 'dailyreport/send_daily_report';
+$route['send-email'] = 'MessageController/sendEmail';
 
 
+// EXCEL UPLOAD  TO CREATE LR
+$route['ExcelLR'] = 'ExcelController/excellr';
+$route['Exceldownload'] = 'ExcelController/exceldownload';
+$route['Excelforminsert'] = 'ExcelController/Excelforminsert';
+
+// PAGE ACCESS
+$route['Pageaccess'] = 'PageAccess/pageaccess';
 
 
 

@@ -6,8 +6,7 @@ class InsertController extends CI_Controller
 {
 
 public function spare_view(){
-            $this->load->model('Auth_model');
-
+       $this->load->model('Auth_model');
        $data['user']=$this->Auth_model->user_data($this->session->userdata('user_id'));
        $data['header']='frontend/header';
        $data['body']='frontend/spare_view';
@@ -70,12 +69,18 @@ public function spare_view(){
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }
 
-    public function filterByDate()
-    {
-        $this->load->model('SpareDetailsModel');
-        $startDate = $this->input->post('startdt');
-        $endDate = $this->input->post('enddt');
-        $data['SpareDetails'] = $this->SpareDetailsModel->getByDateRange($startDate, $endDate);
-        return $this->load->view('filtered_spare_view', $data);
-    }
+public function filterByDate()
+{
+
+  $this->load->model('Auth_model');
+      $data['user']=$this->Auth_model->user_data($this->session->userdata('user_id'));
+    $this->load->model('SpareDetailsModel');
+    $startDate = $this->input->post('startdt');
+    $endDate = $this->input->post('enddt');
+    $data['SpareDetails'] = $this->SpareDetailsModel->getByDateRange($startDate, $endDate);
+    $this->load->view('frontend/filtered_spare_view', $data);
+}
+
+// ============================================================= 
+
 }

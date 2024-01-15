@@ -27,46 +27,43 @@ function isFileExists($image_path='') {
 
 
 
-function sendEmail($recipeinets, $from, $subject, $message, $attach = '')
-   {
-      $CI = get_instance();
+function send1($to, $subject, $message)
+{
+    $CI = get_instance();
 
-      $config = array(
-         'protocol' => 'smtp',
-         'smtp_host' => 'ssl://smtpout.secureserver.net',
-         'smtp_port' => '465',
-         'smtp_user' => 'support@silocloud.com',
-         'smtp_pass' => 'Support@684',
-         'mailtype' => 'html',
-         'starttls' => true,
-         'newline' => "\r\n",
-         'validation' => TRUE
-      );
+    $config = array(
+        'protocol' => 'smtp',
+        'smtp_host' => 'smtp.gmail.com',
+        'smtp_port' => '465',
+        'smtp_crypto' => 'ssl', 
+        'smtp_user' => 'suyash.kore@swatpro.co',
+        'smtp_pass' => 'User123#',
+        'mailtype' => 'html',
+        'starttls' => true,
+        'newline' => "\r\n",
+    );
 
-      $CI->load->library('email', $config);
+    $CI->load->library('email', $config);
+    $CI->email->initialize($config);
 
-      $CI->email->initialize($config);
+    $CI->email->from($from['email'], $from['name']);
+    $CI->email->subject($subject);
+    $CI->email->to($to);
+    $CI->email->message($message);
 
-      $CI->email->from($from['email'], $from['name']);
-
-      $CI->email->subject($subject);
-
-      $CI->email->to($recipeinets);
-
-      $CI->email->message($message);
-
-      if ($attach != '') {
-         $CI->email->attach($attach);
-      }
-   
-        error_reporting(0);
-        if($CI->email->send()){
-            return true;
-        }else{
-            return $CI->email->print_debugger();
-        }
-        error_reporting(E_ALL);
+    if ($attach != '') {
+        $CI->email->attach($attach);
     }
+
+    error_reporting(0);
+    if ($CI->email->send()) {
+        return true;
+    } else {
+        return $CI->email->print_debugger();
+    }
+    error_reporting(E_ALL);
+}
+
 
 
 

@@ -10,7 +10,7 @@ class Auth extends CI_Controller
 
     public function login()
     {
-        $data['header']='frontend/home-header';
+        // $data['header']='frontend/home-header';
         $data['body'] ='frontend/login';
         $data['meta'] = array('title'=>'HOME |NSLINDIA','page_title'=>'');
         $this->load->view('frontend/backend_template', $data);
