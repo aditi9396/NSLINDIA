@@ -29,7 +29,7 @@
                             <br>
                             <div class="container">
                                 <h4 style="text-align:center; background-color:#d3ede2; height:28px; padding:5px;">
-                                    <strong>ADITI TULASIDAS PAWAR </strong>
+                                    <strong> </strong>
                                 </h4>
                                 <br>
                                 <form method="post" name="form1" enctype="multipart/form-data" action="" style="margin-top:10px;">
@@ -2931,7 +2931,7 @@
                                             </ul>
                                         </div> 
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                             <ul class="list-group">
                                                 <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="CPSection">
@@ -3083,7 +3083,8 @@
                                                 </div>
                                             </ul>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    </div> -->
+                                       <!--  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                             <ul class="list-group">
                                                 <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="FLEETSection">
                                                     FLEET
@@ -3296,9 +3297,8 @@
                                                     </table>
                                                 </div>
                                             </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+                                        </div> -->
+                                    <!-- <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                             <ul class="list-group">
                                                 <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="FinanceSection">
@@ -3375,7 +3375,8 @@
                                                 </div>
                                             </ul>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    </div> -->
+                                        <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                             <ul class="list-group">
                                                 <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="AdminSection">
                                                     Admin
@@ -3518,9 +3519,8 @@
                                                     </table>
                                                 </div>
                                             </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+                                        </div> -->
+                                    <!-- <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                             <ul class="list-group">
                                                 <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="WMSSection">
@@ -3987,7 +3987,8 @@
                                                 </div>
                                             </ul>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    </div> -->
+                                       <!--  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                             <ul class="list-group">
                                                 <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="HelpSection">
                                                     Help
@@ -4047,48 +4048,47 @@
                                                     </table>
                                                 </div>
                                             </ul>
+                                        </div> -->
+                                    <!-- <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <ul class="list-group">
+                                                <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="AndroidAppSection">
+                                                    AndroidApp
+                                                </li></b>
+                                                <div id="AndroidAppSection1" class="collapse">
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th><input type="checkbox" class="select-all"> &nbsp; Select All</th>
+                                                                <th>Pages</th>
+                                                                <th>Module</th>
+                                                            </tr>
+                                                        </thead> 
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><input type="checkbox" name="Page[]" value="vtcapp" checked=""> </td>
+                                                                <td> Android Apps</td>
+                                                                <td> AndroidApp</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div> -->
+                                    <br>
+                                    <input type="hidden" name="username" value="PNA2219">
+                                    <div class="row">
+
+                                        <div class="col-2 col-xm-12">
+                                            <input type="submit" name="Submit"  style="cursor:pointor; font-weight:bold;" class="btn btn-gradient-dark btn-fw" value="Submit" onclick="return confirmSubmit();">
                                         </div>
                                     </div>
-                                                   <!--  <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                            <ul class="list-group">
-                                                                <b><li class="list-group-item" data-toggle="collapse" data-target="#formSection1" id="AndroidAppSection">
-                                                                    AndroidApp
-                                                                </li></b>
-                                                                <div id="AndroidAppSection1" class="collapse">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th><input type="checkbox" class="select-all"> &nbsp; Select All</th>
-                                                                                <th>Pages</th>
-                                                                                <th>Module</th>
-                                                                            </tr>
-                                                                        </thead> 
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td><input type="checkbox" name="Page[]" value="vtcapp" checked=""> </td>
-                                                                                <td> Android Apps</td>
-                                                                                <td> AndroidApp</td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </ul>
-                                                        </div>
-                                                    </div> -->
-                                                    <br>
-                                                    <input type="hidden" name="username" value="PNA2219">
-                                                    <div class="row">
-
-                                                        <div class="col-2 col-xm-12">
-                                                            <input type="submit" name="Submit"  style="cursor:pointor; font-weight:bold;" class="btn btn-gradient-dark btn-fw" value="Submit" onclick="return confirmSubmit();">
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
-                        </div>
+                        </form>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
