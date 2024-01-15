@@ -79,6 +79,8 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link active" href="lr-generataion"> LRGENRATION </a></li>
                   <li class="nav-item"> <a class="nav-link" href="LR_cancel">LR CANCEL</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="Createprn">CREATE PRN </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="fetchprnwise">ARRIVAL PRN </a></li>
                   <li class="nav-item"> <a class="nav-link" href="createdrs">CREATE DRS </a></li>
                   <li class="nav-item"> <a class="nav-link" href="register"> REGISTER </a></li>
                   <li class="nav-item"> <a class="nav-link" href="thcarrival"> THC ARRIVAL </a></li>
@@ -93,17 +95,24 @@
                   <li class="nav-item"> <a class="nav-link" href="tripsheet">THRIPSHEET EXPENSES</a></li>
                   <li class="nav-item"> <a class="nav-link" href="locationmaster">MASTER LOCATION</a></li>
                   <li class="nav-item"> <a class="nav-link" href="citymaster">MASTER CITY</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="CreateDrsProfitApprovalForm">DRS APPROVAL FORM </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="DRSProfitApprovalReport">DRS APPROVAL REPORT </a></li>
                   <li class="nav-item"> <a class="nav-link" href="user_view">SPARE PART</a></li>
                   <li class="nav-item"> <a class="nav-link" href="spare_view">SPARE DETAILS</a></li>
                   <li class="nav-item"> <a class="nav-link" href="VehicleIncidentTracker_view">VEHICLE INCIDENT TRACKER</a></li>
                   <li class="nav-item"> <a class="nav-link" href="lrtracking">LR TRACKING</a></li>
                   <li class="nav-item"> <a class="nav-link" href="sales_register">SALES REGISTER</a></li>
+<<<<<<< HEAD
                   <li class="nav-item"> <a class="nav-link" href="cp_sales_register">CP SALES REGISTER</a></li>
                    <li class="nav-item"> <a class="nav-link" href="DRS_sales_register">DRS SALES REGISTER</a></li> <li class="nav-item"> <a class="nav-link" href="THC_sales_register">THC SALES REGISTER</a></li>
 
 
 
 
+=======
+                  <li class="nav-item"><a class="nav-link" href="ExcelLR">EXCEL UPLOAD</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Pageaccess">PAGE ACCESS</a></li>
+>>>>>>> 73d31ce82ecd7070bf508a4a83cb8b3dbdbe8d19
                 </ul>
               </div>
             </li>

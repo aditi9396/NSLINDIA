@@ -112,7 +112,6 @@ $route['thccancel'] = 'THCarrival/thccancel';
 // DASHBOARD DRS CANCEL
 $route['drs_cancel'] = 'THCarrival/search1';
 $route['drscancel'] = 'THCarrival/drscancel';
-$route['adititest'] = 'THCarrival/adititest';
 
 // DASHBOARD LR CANCEL
 $route['LR_cancel'] = 'THCarrival/search4';
@@ -234,13 +233,34 @@ $route['search_fields'] = 'Autocomplete/search_fields';
 $route['sendotpthc'] = 'THCarrival/sendotpthc';
 $route['verify_otpthc'] = 'THCarrival/verify_otpthc';
 $route['getlrdataJUNETHC'] = 'THCarrival/getlrdataJUNETHC';
-$route['vtc'] = 'THCarrival/vtc';
 
 // attendence app
 $route['Attendence'] = 'THCarrival/Attendence';
 $route['take_photo'] = 'THCarrival/photoupload';
 $route['save_photo'] = 'THCarrival/save_photo';
 $route['manifest.json'] = 'ManifestController/manifest';
+
+//CREATE PRN 
+
+$route['Createprn'] = 'CreateAndArrivalPRN/Createprn';
+$route['get_vehicle_data'] = 'CreateAndArrivalPRN/get_vehicle_data';
+$route['serchprnwise'] = 'CreateAndArrivalPRN/serchprnwise';
+$route['get_customer_data'] = 'CreateAndArrivalPRN/get_customer_data';
+$route['getLRNumbersdata'] = 'CreateAndArrivalPRN/getLRNumbersdata';
+$route['savePrn'] = 'CreateAndArrivalPRN/saveprn';
+$route['createprnview'] = 'CreateAndArrivalPRN/createprnview';
+$route['fetchprnwise'] = 'CreateAndArrivalPRN/fetchprnwise';
+$route['UpdatePrnStock'] = 'CreateAndArrivalPRN/UpdatePrnStock';
+$route['prnarrivaldetails'] = 'CreateAndArrivalPRN/prnarrivaldetails';
+
+// DRS PROFIT APPROVAL
+
+$route['CreateDrsProfitApprovalForm'] = 'CreateAndArrivalPRN/DrsProfitApprovalForm';
+$route['insertDRSProfitApproval'] = 'CreateAndArrivalPRN/insertDRSProfitApproval';
+$route['UpdateDRSProfitApproval'] = 'CreateAndArrivalPRN/UpdateDRSProfitApproval';
+$route['edit_drsapproval'] = 'CreateAndArrivalPRN/edit_drsapproval';
+$route['delete_drsapproval'] = 'CreateAndArrivalPRN/delete_drsapproval';
+$route['DRSProfitApprovalReport'] = 'CreateAndArrivalPRN/DRSProfitApprovalReport';
 
 // SPARE DETAILS
 $route['spare_view'] = 'InsertController/part';
@@ -269,6 +289,7 @@ $route['searchdata'] = 'Sales_Register_Controller/searchdata';
 $route['xlsxdata'] = 'Sales_Register_Controller/xlsxdata';
 $route['allstickerprint'] = 'Sales_Register_Controller/allstickerprint';
 
+<<<<<<< HEAD
 // cp Sales Register
 $route['cp_sales_register'] = 'Sales_Register_Controller/cp_sales_register';
 $route['searchdata1'] = 'Sales_Register_Controller/searchdata1';
@@ -300,6 +321,15 @@ $route['send-email'] = 'MessageController/sendEmail';
 
 
 
+=======
+// EXCEL UPLOAD  TO CREATE LR
+$route['ExcelLR'] = 'ExcelController/excellr';
+$route['Exceldownload'] = 'ExcelController/exceldownload';
+$route['Excelforminsert'] = 'ExcelController/Excelforminsert';
+
+// PAGE ACCESS
+$route['Pageaccess'] = 'PageAccess/pageaccess';
+>>>>>>> 73d31ce82ecd7070bf508a4a83cb8b3dbdbe8d19
 
 
 
