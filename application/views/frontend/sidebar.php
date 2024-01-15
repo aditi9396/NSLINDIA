@@ -96,7 +96,11 @@
                   <li class="nav-item"> <a class="nav-link" href="user_view">SPARE PART</a></li>
                   <li class="nav-item"> <a class="nav-link" href="spare_view">SPARE DETAILS</a></li>
                   <li class="nav-item"> <a class="nav-link" href="VehicleIncidentTracker_view">VEHICLE INCIDENT TRACKER</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="lrtracking">LR TRACKING</a></li>
                   <li class="nav-item"> <a class="nav-link" href="sales_register">SALES REGISTER</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="cp_sales_register">CP SALES REGISTER</a></li>
+                   <li class="nav-item"> <a class="nav-link" href="DRS_sales_register">DRS SALES REGISTER</a></li> <li class="nav-item"> <a class="nav-link" href="THC_sales_register">THC SALES REGISTER</a></li>
+
 
 
 
