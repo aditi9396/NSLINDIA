@@ -239,7 +239,6 @@ $route['Attendence'] = 'THCarrival/Attendence';
 $route['take_photo'] = 'THCarrival/photoupload';
 $route['save_photo'] = 'THCarrival/save_photo';
 $route['manifest.json'] = 'ManifestController/manifest';
-$route['vtc3pl'] = 'THCarrival/vtc3pl';
 
 //CREATE PRN 
 
@@ -290,6 +289,13 @@ $route['searchdata'] = 'Sales_Register_Controller/searchdata';
 $route['xlsxdata'] = 'Sales_Register_Controller/xlsxdata';
 $route['allstickerprint'] = 'Sales_Register_Controller/allstickerprint';
 
+// EXCEL UPLOAD  TO CREATE LR
+$route['ExcelLR'] = 'ExcelController/excellr';
+$route['Exceldownload'] = 'ExcelController/exceldownload';
+$route['Excelforminsert'] = 'ExcelController/Excelforminsert';
+
+// PAGE ACCESS
+$route['Pageaccess'] = 'PageAccess/pageaccess';
 
 
 
