@@ -102,17 +102,10 @@
                   <li class="nav-item"> <a class="nav-link" href="VehicleIncidentTracker_view">VEHICLE INCIDENT TRACKER</a></li>
                   <li class="nav-item"> <a class="nav-link" href="lrtracking">LR TRACKING</a></li>
                   <li class="nav-item"> <a class="nav-link" href="sales_register">SALES REGISTER</a></li>
-<<<<<<< HEAD
                   <li class="nav-item"> <a class="nav-link" href="cp_sales_register">CP SALES REGISTER</a></li>
                    <li class="nav-item"> <a class="nav-link" href="DRS_sales_register">DRS SALES REGISTER</a></li> <li class="nav-item"> <a class="nav-link" href="THC_sales_register">THC SALES REGISTER</a></li>
-
-
-
-
-=======
                   <li class="nav-item"><a class="nav-link" href="ExcelLR">EXCEL UPLOAD</a></li>
                   <li class="nav-item"><a class="nav-link" href="Pageaccess">PAGE ACCESS</a></li>
->>>>>>> 73d31ce82ecd7070bf508a4a83cb8b3dbdbe8d19
                 </ul>
               </div>
             </li>
