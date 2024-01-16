@@ -289,6 +289,32 @@ $route['searchdata'] = 'Sales_Register_Controller/searchdata';
 $route['xlsxdata'] = 'Sales_Register_Controller/xlsxdata';
 $route['allstickerprint'] = 'Sales_Register_Controller/allstickerprint';
 
+// cp Sales Register
+$route['cp_sales_register'] = 'Sales_Register_Controller/cp_sales_register';
+$route['searchdata1'] = 'Sales_Register_Controller/searchdata1';
+$route['allstickerprintcp'] = 'Sales_Register_Controller/allstickerprintcp';
+$route['xlsxdata1'] = 'Sales_Register_Controller/xlsxdata1';
+
+// DRS Sales Register
+$route['DRS_sales_register'] = 'Sales_Register_Controller/DRS_sales_register';
+// THC Sales Register
+$route['THC_sales_register'] = 'Sales_Register_Controller/THC_sales_register';
+
+
+//lrtracking
+$route['lrtracking'] = 'Lrtracking_Controller/lrtracking';
+$route['searchlrdata'] = 'Lrtracking_Controller/searchlrdata';
+$route['lrtracking_controller/insert'] = 'Lrtracking_Controller/insert';
+$route['tracklr/(:any)'] = 'lrtracking_controller/trackLR/$1';
+$route['ViewFeedback'] = 'Lrtracking_Controller/ViewFeedback';
+$route['viewcustfeedbackdata'] = 'Lrtracking_Controller/viewcustfeedbackdata';
+$route['sendDailyReport'] = 'Lrtracking_Controller/sendDailyReport';
+
+//mail
+$route['send-daily-report'] = 'dailyreport/send_daily_report';
+$route['send-email'] = 'MessageController/sendEmail';
+
+
 // EXCEL UPLOAD  TO CREATE LR
 $route['ExcelLR'] = 'ExcelController/excellr';
 $route['Exceldownload'] = 'ExcelController/exceldownload';

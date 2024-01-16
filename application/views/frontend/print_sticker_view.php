@@ -15,7 +15,7 @@ if (is_array($lrData)) {
                     }
                     ?>
 
-                    <div style='display:inline; font-family: Arial; width:45%; margin-bottom: 43px;<?php if (($StickerCount + 1) % 2 == 0) echo "margin-left: 50px;"; ?>float: left;'>
+                    <div style='display:inline; font-family: Arial; width:42%; margin-bottom: 43px;<?php if (($StickerCount + 1) % 2 == 0) echo "margin-left: 50px;"; ?>float: left;'>
                         <!-- ... Your existing code for table and other details ... -->
                         <table style='border-collapse: collapse;' width='100%' height='230px'>
                             <tr>

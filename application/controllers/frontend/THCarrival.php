@@ -425,12 +425,7 @@ public function Attendence(){
  $this->load->view('frontend/frontend-template', $data);
 }
 
-<<<<<<< HEAD
-public function vtc3pl(){
-    echo ' i am here';
-}
-=======
->>>>>>> 286e17bd3cc1254db023f1d09a60d4013f59668c
+
 
 public function photoupload(){
  $this->load->model('Auth_model');
