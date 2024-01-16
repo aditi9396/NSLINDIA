@@ -18,60 +18,60 @@
 
     public function customerspod() {
       $this->db->select('Consignor');
-        $this->db->from('vtcpod1');
-        $this->db->where('Verified', 1);
-        $this->db->where('Uploaded', 1);
-        $this->db->group_by('Consignor');
-        $query = $this->db->get();
+      $this->db->from('vtcpod1');
+      $this->db->where('Verified', 1);
+      $this->db->where('Uploaded', 1);
+      $this->db->group_by('Consignor');
+      $query = $this->db->get();
+      return $query->result_array();
+  }
+
+
+  public function updateUserDepot($user_id, $depot)
+  {
+    $data = array(
+        'Depot' => $depot
+    );
+
+    $this->db->where('EmpID', $user_id);
+    $this->db->update('employee', $data);
+
+    return $this->db->affected_rows() > 0;
+}
+
+public function getVendorsByType($vendorType)
+{
+
+    $this->db->where('vendor_type', $vendorType);
+    $query = $this->db->get('vendor');
+
+    if ($query->num_rows() > 0) {
         return $query->result_array();
+    } else {
+        return [];
     }
+}
 
+public function vendor_data()
+{
+    $this->load->database();
+    $vendor = $this->db->query("SELECT `VendorCode`, `VendorName` FROM vendor");
+    return $vendor->result_array();
+}
+public function str_lr_no($keyword){
+   $this->db->like('LRNO', $keyword);
+   $query = $this->db->get('lr');
+   return $query->result();
+}
 
-    public function updateUserDepot($user_id, $depot)
-    {
-        $data = array(
-            'Depot' => $depot
-        );
+public function LRNO($keyword){
+   $this->db->like('LRNO', $keyword);
+   $query = $this->db->get('lr');
+   return $query->result();
+}
 
-        $this->db->where('EmpID', $user_id);
-        $this->db->update('employee', $data);
-
-        return $this->db->affected_rows() > 0;
-    }
-
-    public function getVendorsByType($vendorType)
-    {
-
-        $this->db->where('vendor_type', $vendorType);
-        $query = $this->db->get('vendor');
-
-        if ($query->num_rows() > 0) {
-            return $query->result_array();
-        } else {
-            return [];
-        }
-    }
-
-    public function vendor_data()
-    {
-        $this->load->database();
-        $vendor = $this->db->query("SELECT `VendorCode`, `VendorName` FROM vendor");
-        return $vendor->result_array();
-    }
-    public function str_lr_no($keyword){
-       $this->db->like('LRNO', $keyword);
-       $query = $this->db->get('lr');
-       return $query->result();
-   }
-
-   public function LRNO($keyword){
-       $this->db->like('LRNO', $keyword);
-       $query = $this->db->get('lr');
-       return $query->result();
-   }
-
-   public function fetchLRData($lr_no)
-   {
+public function fetchLRData($lr_no)
+{
     $this->db->select('*');
     $this->db->from('cpvolumetricdetails');
     $this->db->join('lr', 'cpvolumetricdetails.str_lr_no = lr.str_lr_no');
@@ -566,7 +566,6 @@ public function updateReasonForTHCNO($thcno, $newReason) {
     $this->db->update('thc', $data);
 }
 
-// PRN
 
 public function getVehicle($searchTerm) {
     $sql = $this->db->query("SELECT Vehicle_No FROM `vehiclemaster` WHERE `Vehicle_No` LIKE '%$searchTerm%'");
@@ -586,41 +585,41 @@ public function getCustomerData($searchTerm) {
 }
 
 public function getLRNumbers($partyId, $selectedDate, $fromDate) {
-        $data = array();
+    $data = array();
 
-        $sql = "SELECT LRNO FROM lr WHERE 
-                Status = '1' 
-                AND Consignor LIKE '%$partyId%' 
-                AND Origin = 'PNA' 
-                AND CurrentLocation = 'PNA' 
-                AND LRDate BETWEEN '$fromDate' AND '$selectedDate' 
-                AND DRS_THCNO = ''";
+    $sql = "SELECT LRNO FROM lr WHERE 
+    Status = '1' 
+    AND Consignor LIKE '%$partyId%' 
+    AND Origin = 'PNA' 
+    AND CurrentLocation = 'PNA' 
+    AND LRDate BETWEEN '$fromDate' AND '$selectedDate' 
+    AND DRS_THCNO = ''";
 
-        $query = $this->db->query($sql);
+    $query = $this->db->query($sql);
 
-        if ($query->num_rows() > 0) {
-            foreach ($query->result_array() as $row) {
-                $data[] = $row['LRNO'];
-            }
-            return $data;
-        } else {
-            return false;
+    if ($query->num_rows() > 0) {
+        foreach ($query->result_array() as $row) {
+            $data[] = $row['LRNO'];
         }
+        return $data;
+    } else {
+        return false;
     }
+}
 
 
-    public function getMaxId() {
-        $this->db->select_max('CAST(SUBSTRING(`PRNId`, 14) AS UNSIGNED)', 'maxId');
-        $result = $this->db->get('PRNvehicle');
-        return $result->row_array();
-    }
+public function getMaxId() {
+    $this->db->select_max('CAST(SUBSTRING(`PRNId`, 14) AS UNSIGNED)', 'maxId');
+    $result = $this->db->get('PRNvehicle');
+    return $result->row_array();
+}
 
-    public function insertPrnVehicle($data) {
-        $this->db->insert('prnvehicle', $data);
-        return $this->db->insert_id();
-    }
+public function insertPrnVehicle($data) {
+    $this->db->insert('prnvehicle', $data);
+    return $this->db->insert_id();
+}
 
-    public function insertPrnApp($lrData) {
+public function insertPrnApp($lrData) {
     if ($this->db->insert('prnapp', $lrData)) {
         return true;
     } else {
@@ -631,7 +630,7 @@ public function getLRNumbers($partyId, $selectedDate, $fromDate) {
 }
 
 
-    public function updateLrTable($lrnoValue) {
+public function updateLrTable($lrnoValue) {
     $this->db->set('Status', '7');
     $this->db->where('LRNO', $lrnoValue);
     if ($this->db->update('lr')) {
@@ -644,17 +643,7 @@ public function getLRNumbers($partyId, $selectedDate, $fromDate) {
 }
 
 
-/*public function getFilteredRecordsprn($fromDate, $toDate, $THCNO) {
-      
-        $this->db->where('PRNDate >=', $fromDate);
-        $this->db->where('PRNDate <=', $toDate);
-        $this->db->where('PRNId', $THCNO);
-        $query = $this->db->get('prnvehicle');
-
-        return $query->result(); 
-    }*/
-
-    public function searchByDatePRN($dateFrom, $dateTo) {
+public function searchByDatePRN($dateFrom, $dateTo) {
     $result = $this->db->query("SELECT * FROM `prnvehicle` WHERE `PRNDate` BETWEEN ? AND ? AND ArrivalDate = '0000-00-00'", array($dateFrom, $dateTo));
     return $result->result();
 }
@@ -679,73 +668,73 @@ public function get_UpdatePrnStock_alldetails($Edit_PrnStock)
 }
 
 public function updatePrnDetails($data) {
-        $this->db->trans_start();
+    $this->db->trans_start();
 
-        $this->db->set('ArrivalDate', 'NOW()', false);
-        $this->db->set('PrnArrivalDateTime', 'NOW()', false);
-        $this->db->set('ArrivalUser', $data['User1']);
-        $this->db->set('LoadingUnloading', $data['Unloadingornot']);
-        $this->db->set('VendorHamaliName', $data['Hvendor']);
-        $this->db->set('HamaliAmount', $data['hamali']);
-        $this->db->where('PRNId', $data['thcno']);
-        $this->db->update('PRNvehicle');
+    $this->db->set('ArrivalDate', 'NOW()', false);
+    $this->db->set('PrnArrivalDateTime', 'NOW()', false);
+    $this->db->set('ArrivalUser', $data['User1']);
+    $this->db->set('LoadingUnloading', $data['Unloadingornot']);
+    $this->db->set('VendorHamaliName', $data['Hvendor']);
+    $this->db->set('HamaliAmount', $data['hamali']);
+    $this->db->where('PRNId', $data['thcno']);
+    $this->db->update('PRNvehicle');
 
-        if (!empty($data['LRDetails']) && is_array($data['LRDetails'])) {
-            foreach ($data['LRDetails'] as $lrow) {
-                $this->db->set('ADate', 'NOW()', false);
-                $this->db->set('RecievedQty', $lrow['received_qty']);
-                $this->db->set('Reason', $lrow['reason']);
-                $this->db->where('LRNO', $lrow['LRNO']);
-                $this->db->where('PRNId', $data['thcno']);
-                $this->db->update('Prnapp');
+    if (!empty($data['LRDetails']) && is_array($data['LRDetails'])) {
+        foreach ($data['LRDetails'] as $lrow) {
+            $this->db->set('ADate', 'NOW()', false);
+            $this->db->set('RecievedQty', $lrow['received_qty']);
+            $this->db->set('Reason', $lrow['reason']);
+            $this->db->where('LRNO', $lrow['LRNO']);
+            $this->db->where('PRNId', $data['thcno']);
+            $this->db->update('Prnapp');
 
-                $updateStatus = ($lrow['received_qty'] !== $lrow['qty_']) ? 10 : 1;
-                $this->updateLRStatus($lrow['LRNO'], $updateStatus, $data['thcno']);
+            $updateStatus = ($lrow['received_qty'] !== $lrow['qty_']) ? 10 : 1;
+            $this->updateLRStatus($lrow['LRNO'], $updateStatus, $data['thcno']);
 
                 // Send email when LR quantity does not match
-                if ($updateStatus === 10) {
-                    $this->sendEmailOnQuantityMismatch($data['thcno'], $data['Vehicleno'], $lrow);
-                }
+            if ($updateStatus === 10) {
+                $this->sendEmailOnQuantityMismatch($data['thcno'], $data['Vehicleno'], $lrow);
             }
         }
-
-        $this->db->trans_complete();
-
-        if ($this->db->trans_status() === false) {
-            return false;
-        }
-
-        return true;
     }
 
-    public function sendEmailOnQuantityMismatch($thcno, $vehicleno, $lrData) {
-        $to = "ashok.kadam@swatpro.co";
-        $subject = "Regarding PRN material not arrived";
-        $message = "<tr><td>$thcno</td><td>$vehicleno</td><td>{$lrData['LRNO']}</td><td>{$lrData['qty_']}</td><td>{$lrData['received_qty']}</td><td>{$lrData['reason']}</td></tr>";
+    $this->db->trans_complete();
 
-        $message = "
-            <table border=1 cellpadding='5' cellspacing='5' style='margin-top:30px; border-color: black; '>
-            <tr><th>PRN NO</th><th>Vehicle No</th><th>LR NO</th><th>PkgsNo</th><th>Arrival Qty</th><th>Reason</th></tr>
-            $message
-        </table>";
-
-        $headers = array(
-            'MIME-Version: 1.0',
-            'Content-type: text/html; charset=utf-8',
-            'From: ashokkadam7795@gmail.com',
-            'Cc: ashokadam2000@gmail.com,ashokkadam7795@gmail.com',
-            'Bcc: anotheremail@example.com'
-        );
-
-        $headers = implode("\r\n", $headers);
-        $retval = mail($to, $subject, $message, $headers);
-
-        if ($retval === true) {
-            echo "<script>alert('Mail sent successfully...')</script>";
-        } else {
-            echo "Error sending the email.";
-        }
+    if ($this->db->trans_status() === false) {
+        return false;
     }
+
+    return true;
+}
+
+public function sendEmailOnQuantityMismatch($thcno, $vehicleno, $lrData) {
+    $to = "ashok.kadam@swatpro.co";
+    $subject = "Regarding PRN material not arrived";
+    $message = "<tr><td>$thcno</td><td>$vehicleno</td><td>{$lrData['LRNO']}</td><td>{$lrData['qty_']}</td><td>{$lrData['received_qty']}</td><td>{$lrData['reason']}</td></tr>";
+
+    $message = "
+    <table border=1 cellpadding='5' cellspacing='5' style='margin-top:30px; border-color: black; '>
+    <tr><th>PRN NO</th><th>Vehicle No</th><th>LR NO</th><th>PkgsNo</th><th>Arrival Qty</th><th>Reason</th></tr>
+    $message
+    </table>";
+
+    $headers = array(
+        'MIME-Version: 1.0',
+        'Content-type: text/html; charset=utf-8',
+        'From: ashokkadam7795@gmail.com',
+        'Cc: ashokadam2000@gmail.com,ashokkadam7795@gmail.com',
+        'Bcc: anotheremail@example.com'
+    );
+
+    $headers = implode("\r\n", $headers);
+    $retval = mail($to, $subject, $message, $headers);
+
+    if ($retval === true) {
+        echo "<script>alert('Mail sent successfully...')</script>";
+    } else {
+        echo "Error sending the email.";
+    }
+}
 
 
 public function updateLRStatus($lrno, $status, $thcno) {
@@ -760,12 +749,11 @@ public function updateLRStatus($lrno, $status, $thcno) {
 }
 
 
-// DRS APPROVAL
 
 public function getFilteredRecords($fromDate, $toDate) {
     $this->db->select('id, vendorName, vehicleNo, date, reason, approvalUser');
     $this->db->from('drsprofitapproval');
-       
+    
     $this->db->where('date >=', $fromDate);
     $this->db->where('date <=', $toDate);
 
@@ -784,7 +772,7 @@ public function getFilteredRecords($fromDate, $toDate) {
 public function delete_Drsapproval($Delete_Approval)
 {
     $this->db->where('id', $Delete_Approval);
-$this->db->delete('drsprofitapproval');
+    $this->db->delete('drsprofitapproval');
 }
 
 
@@ -801,7 +789,7 @@ public function get_Drsapproval_details($edit_Approval)
 public function insertDrsProfitApproval($formArray)
 {
 
-$result  = $this->db->insert('drsprofitapproval',$formArray);
+    $result  = $this->db->insert('drsprofitapproval',$formArray);
 
     if($result)
     {  
@@ -816,7 +804,7 @@ $result  = $this->db->insert('drsprofitapproval',$formArray);
 
 }
 
- public function edit_drsapproval($editdrsid, $formdata)
+public function edit_drsapproval($editdrsid, $formdata)
 {
     $this->db->where('id', $editdrsid);
     $this->db->update('drsprofitapproval', $formdata);

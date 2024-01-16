@@ -117,11 +117,6 @@ class Sales_Register_Controller extends CI_Controller {
             $this->load->view('frontend/print_sticker_view', $data);
         }
     }
-<<<<<<< HEAD
-=======
-}
-// =================true
->>>>>>> bf5fc4eaf6ebcc8bb52d127dafbe255a58f3d1e3
 
 public function cp_sales_register() {
         $this->load->model('Auth_model');

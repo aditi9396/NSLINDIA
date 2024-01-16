@@ -322,6 +322,13 @@ $route['Excelforminsert'] = 'ExcelController/Excelforminsert';
 
 // PAGE ACCESS
 $route['Pageaccess'] = 'PageAccess/pageaccess';
+$route['userautosearch'] = 'PageAccess/userautosearch';
+$route['fetchEmployeeData'] = 'PageAccess/fetchEmployeeData';
+$route['Access'] = 'PageAccess/access';
+
+
+
+
 
 
 

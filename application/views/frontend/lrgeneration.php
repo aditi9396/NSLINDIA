@@ -65,66 +65,66 @@
                   <div class="col-sm">
                     <label for="paytype" >Payment Type:</label>
                     <select id="paytype" class="form-control"  name="paytype" onchange="paytypechange()" autofocus required>
-                        <option value="" selected="" >SELECT PAYMENT TYPE</option>
-                        <option value="TO PAY" <?php if (isset($requestdata) && $requestdata->PayBasis === 'TO PAY') echo 'selected'; ?>>TO PAY</option>
-                        <option value="TBB">TBB</option> 
-                        <option value="PAID">PAID</option>
-                      </select>
-                    </div>
+                      <option value="" selected="" >SELECT PAYMENT TYPE</option>
+                      <option value="TO PAY" <?php if (isset($requestdata) && $requestdata->PayBasis === 'TO PAY') echo 'selected'; ?>>TO PAY</option>
+                      <option value="TBB">TBB</option> 
+                      <option value="PAID">PAID</option>
+                    </select>
+                  </div>
 
-                    <div class="col-sm">
-                      <label for="district">City:</label>
-                      <input type="text" class="form-control" id="district" style="text-transform:uppercase ;" name="district" list="District-list" placeholder="Enter City" value="<?php if(isset($requestdata)) echo $requestdata->ToPlace; ?>" required>
-                      <datalist id="District-list"></datalist>
-                    </div>
+                  <div class="col-sm">
+                    <label for="district">City:</label>
+                    <input type="text" class="form-control" id="district" style="text-transform:uppercase ;" name="district" list="District-list" placeholder="Enter City" value="<?php if(isset($requestdata)) echo $requestdata->ToPlace; ?>" required>
+                    <datalist id="District-list"></datalist>
+                  </div>
 
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-sm">
+                  <div>
+                    <div></div>
+                    <div colspan="2">Consignor</div>
+                  </div>
+                  <div>
+                    <div>Mobile No <span style="color:red;font-weight:bold">*</span></div>
+                    <div><input type="text" class="form-control" id="WIConsignormob" name="WIConsignormob" pattern="[0-9]+" maxlength="10" value="<?php if(isset($requestdata)) echo $requestdata->ConsignorMob; ?>" ></div>
+                  </div>
+                  <br>
+                  <div>
+                    <div>Consignor Name</div>
+                    <div style="display:none">
+                      <input type="text" class="form-control" id="FMConsignor" name="FMConsignor" size="10" value="<?php if(isset($requestdata)) echo $requestdata->Consignor; ?>" class="ui-autocomplete-input" autocomplete="off" disabled="">
+                      -<input type="text" class="form-control" id="FMConsignorName" name="FMConsignorName" value="<?php if(isset($requestdata)) echo $requestdata->Consignor; ?>" disabled="">
+                    </div>
+                    <div><input type="text" class="form-control" id="WIConsignor" name="WIConsignor" value="<?php if(isset($requestdata)) echo $requestdata->Consignor; ?>" required></div>
+                  </div>
+                  <br>
+                  <br>
+                  <div>
+                    <div>Address</div>
+                    <div><input type="text" id="WIConsignoradd" class="form-control" name="WIConsignoradd" value="<?php if(isset($requestdata)) echo $requestdata->ConsignorAdd; ?>" style="text-transform:uppercase" required></div>
                   </div>
                 </div>
 
-                <div class="row form-group">
-                  <div class="col-sm">
-                    <div>
-                      <div></div>
-                      <div colspan="2">Consignor</div>
-                    </div>
-                    <div>
-                      <div>Mobile No <span style="color:red;font-weight:bold">*</span></div>
-                      <div><input type="text" class="form-control" id="WIConsignormob" name="WIConsignormob" pattern="[0-9]+" maxlength="10" value="<?php if(isset($requestdata)) echo $requestdata->ConsignorMob; ?>" ></div>
-                    </div>
-                    <br>
-                    <div>
-                      <div>Consignor Name</div>
-                      <div style="display:none">
-                        <input type="text" class="form-control" id="FMConsignor" name="FMConsignor" size="10" value="<?php if(isset($requestdata)) echo $requestdata->Consignor; ?>" class="ui-autocomplete-input" autocomplete="off" disabled="">
-                        -<input type="text" class="form-control" id="FMConsignorName" name="FMConsignorName" value="<?php if(isset($requestdata)) echo $requestdata->Consignor; ?>" disabled="">
-                      </div>
-                      <div><input type="text" class="form-control" id="WIConsignor" name="WIConsignor" value="<?php if(isset($requestdata)) echo $requestdata->Consignor; ?>" required></div>
-                    </div>
-                    <br>
-                    <br>
-                    <div>
-                      <div>Address</div>
-                      <div><input type="text" id="WIConsignoradd" class="form-control" name="WIConsignoradd" value="<?php if(isset($requestdata)) echo $requestdata->ConsignorAdd; ?>" style="text-transform:uppercase" required></div>
+                <div class="col-sm">
+                  <div>
+                    <div></div>
+                    <div>Consignee</div>
+                  </div>
+                  <div>
+                    <div></div>
+                  </div>
+                  <div>
+                    <div>Mobile No <span style="color:red;font-weight:bold">*</span></div>
+                    <div><input type="text" class="form-control" id="WIConsigneemob" name="WIConsigneemob" value="<?php if(isset($requestdata)) echo $requestdata->ConsigneeMob; ?>" pattern="[0-9]+" maxlength="10" required>
                     </div>
                   </div>
-
-                  <div class="col-sm">
-                    <div>
-                      <div></div>
-                      <div>Consignee</div>
-                    </div>
-                    <div>
-                      <div></div>
-                    </div>
-                    <div>
-                      <div>Mobile No <span style="color:red;font-weight:bold">*</span></div>
-                      <div><input type="text" class="form-control" id="WIConsigneemob" name="WIConsigneemob" value="<?php if(isset($requestdata)) echo $requestdata->ConsigneeMob; ?>" pattern="[0-9]+" maxlength="10" required>
-                      </div>
-                    </div>
-                    <div>
-                      <div>Consignee Name</div>
-                      <div style="display:none">
-                        <input type="text" class="form-control" id="FMConsignee" name="FMConsignee"></div>
+                  <div>
+                    <div>Consignee Name</div>
+                    <div style="display:none">
+                      <input type="text" class="form-control" id="FMConsignee" name="FMConsignee"></div>
                       <div><input type="text" id="WIConsignee" class="form-control" name="WIConsignee" value="<?php if(isset($requestdata)) echo $requestdata->ConsigneeMar; ?>" required="">
                         <input type="text" id="WIConsigneeMar" class="form-control" name="WIConsigneeMar" value="<?php if(isset($requestdata)) echo $requestdata->ConsigneeMar; ?>" required></div>
                       </div>

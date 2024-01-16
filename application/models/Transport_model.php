@@ -35,22 +35,22 @@
   return $this->db->get()->result();
 }
 
+public function UserAutosearch($keyword)
+    {
+        $this->db->like('EmpName', $keyword);
+        $query = $this->db->get('employee');
+        return $query->result();
+    }
 
-public function checkCityExists($searchTerm) {
-  $this->db->select('CityNameEng');
-  $this->db->from('CityMaster');
-  $this->db->where('Active', 1);
-  $this->db->where('CityNameEng', $searchTerm);
-  $query = $this->db->get();
-
-  if($query->num_rows() > 0) {
-    return true; 
-  } else {
-    return false; 
-  }
+  public function UserAutosearch1($keyword1)
+{
+    $this->db->select('EmpName, UserName');
+    $this->db->like('EmpName', $keyword1);
+    $query = $this->db->get('employee');
+    return $query->row();
 }
 
+
 }
 
 
-?>
