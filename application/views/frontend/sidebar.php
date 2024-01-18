@@ -79,6 +79,10 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link active" href="lr-generataion"> LRGENRATION </a></li>
                   <li class="nav-item"> <a class="nav-link" href="LR_cancel">LR CANCEL</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="Editselectlr">EDIT LR</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="SelectReturnlr">RETURN LR</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="Multiplelrprint">LR MULTIPLE PRINT</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="Loadingsheet">LOADINGSHEET</a></li>
                   <li class="nav-item"> <a class="nav-link" href="Createprn">CREATE PRN </a></li>
                   <li class="nav-item"> <a class="nav-link" href="fetchprnwise">ARRIVAL PRN </a></li>
                   <li class="nav-item"> <a class="nav-link" href="createdrs">CREATE DRS </a></li>
@@ -103,7 +107,7 @@
                   <li class="nav-item"> <a class="nav-link" href="lrtracking">LR TRACKING</a></li>
                   <li class="nav-item"> <a class="nav-link" href="sales_register">SALES REGISTER</a></li>
                   <li class="nav-item"> <a class="nav-link" href="cp_sales_register">CP SALES REGISTER</a></li>
-                   <li class="nav-item"> <a class="nav-link" href="DRS_sales_register">DRS SALES REGISTER</a></li> <li class="nav-item"> <a class="nav-link" href="THC_sales_register">THC SALES REGISTER</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="DRS_sales_register">DRS SALES REGISTER</a></li> <li class="nav-item"> <a class="nav-link" href="THC_sales_register">THC SALES REGISTER</a></li>
                   <li class="nav-item"><a class="nav-link" href="ExcelLR">EXCEL UPLOAD</a></li>
                   <li class="nav-item"><a class="nav-link" href="Pageaccess">PAGE ACCESS</a></li>
                 </ul>
