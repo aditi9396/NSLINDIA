@@ -36,7 +36,7 @@
                         <div id="DETAILS" style="display:none;">
                             <form method="post" name="userform" id="userform" enctype="multipart/form-data" action="" >
                                 <div class="row">
-                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <ul class="list-group">
                                         <b>
                                             <li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#collapseExample" id="TPTSection" aria-expanded="false" aria-controls="collapseExample">
@@ -158,9 +158,14 @@
     });
 
     $("#Access").click(function() {
-        alert('i am here');
         let form = document.getElementById("userform");
         let fd = new FormData(form);
+
+        var username = document.getElementById('username').value;
+        at = username;
+        alert(at);
+
+        fd.append('at', at);
 
         $.ajax({
             url: base_url + "Access",
@@ -181,7 +186,5 @@
             }
         });
     });
-
-
 
 </script>

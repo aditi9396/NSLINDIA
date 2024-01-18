@@ -42,11 +42,24 @@ class PageAccess extends CI_Controller
 		}
 	}
 
-	public function access(){
-		$page = $this->input->post('Page');
-		$data = array(
-			"page" => $page,
-		);
+	public function access() {
+    $username = $this->input->post('at');
+    $page = $this->input->post('Page');
+    
+    $pageList = implode(',', $page);
 
-	}
+    $this->db->where('EmpName', $username);
+    $this->db->update('users', array('PageAccess' => $pageList));
+
+    if ($this->db->affected_rows() > 0) {
+        echo "PageAccess updated successfully!";
+    } else {
+        echo "User not found or no changes made to PageAccess.";
+    }
+}
+
+
+
+
+	
 }
