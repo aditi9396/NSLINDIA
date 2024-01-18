@@ -58,7 +58,7 @@
               </a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
+              <a class="nav-link" href="#">
                 <span class="menu-title">Charts</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
@@ -107,12 +107,12 @@
                   <li class="nav-item"> <a class="nav-link" href="lrtracking">LR TRACKING</a></li>
                   <li class="nav-item"> <a class="nav-link" href="sales_register">SALES REGISTER</a></li>
                   <li class="nav-item"> <a class="nav-link" href="cp_sales_register">CP SALES REGISTER</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="DRS_sales_register">DRS SALES REGISTER</a></li> <li class="nav-item"> <a class="nav-link" href="THC_sales_register">THC SALES REGISTER</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="DRS_sales_register">DRS SALES REGISTER</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="THC_sales_register">THC SALES REGISTER</a></li>
                   <li class="nav-item"><a class="nav-link" href="ExcelLR">EXCEL UPLOAD</a></li>
                   <li class="nav-item"><a class="nav-link" href="Pageaccess">PAGE ACCESS</a></li>
                 </ul>
               </div>
             </li>
-
           </ul>
         </nav>
