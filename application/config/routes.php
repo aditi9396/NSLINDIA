@@ -347,7 +347,8 @@ $route['createstate'] = 'Lredit/createstate';
 $route['SelectSatetment'] = 'Lredit/SelectSatetment';
 $route['Createstatement'] = 'Lredit/Createstatement';
 $route['VerifySattement'] = 'Lredit/VerifySattement';
-
+// testing phase
+$route['test'] = 'Lredit/test';
 
 
 

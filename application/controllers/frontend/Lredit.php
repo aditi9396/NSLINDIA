@@ -548,6 +548,10 @@ class Lredit extends CI_Controller {
         $data['user'] = $this->Auth_model->user_data($this->session->userdata('user_id'));
         $this->load->view('frontend/VerifyStatement', $data);
     }
+
+    public function test(){
+        print_r('i am here');
+    }
  
 
 }
