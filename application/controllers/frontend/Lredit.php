@@ -549,9 +549,5 @@ class Lredit extends CI_Controller {
         $this->load->view('frontend/VerifyStatement', $data);
     }
 
-    public function test(){
-        print_r('i am here');
-    }
- 
 
 }
