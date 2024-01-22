@@ -5,9 +5,6 @@
 <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 <script src="assets/js/misc.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script type="text/javascript">
-    
-</script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <div class="container mt-5">
     <div class="row justify-content-center">
